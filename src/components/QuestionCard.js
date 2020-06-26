@@ -34,9 +34,7 @@ class QuestionCard extends Component {
               <Button
                 onClick={() => {
                   if (type === "answered") {
-                    this.props.history.push("/question", {
-                      qid: question.id,
-                    });
+                    this.props.history.push("/questionResult/" + question.id);
                   } else {
                     this.props.history.push("/question/" + question.id);
                   }

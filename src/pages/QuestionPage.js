@@ -32,9 +32,11 @@ class QuestionPage extends Component {
   };
 
   componentDidUpdate(prevProps) {
+    let { qid } = this.props.match.params;
     if (prevProps.loading && !this.props.loading) {
-      this.props.history.push("/");
       this.props.get_initial_data();
+      // this.props.history.push("/");
+      this.props.history.replace("/questionResult/" + qid);
     }
   }
 

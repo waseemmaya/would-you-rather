@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
   Redirect,
+  Link,
 } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -14,6 +15,8 @@ import NotFound from "./pages/NotFound";
 import { get_initial_data } from "./reducks/data";
 import QuestionPage from "./pages/QuestionPage";
 import { logout_user } from "./reducks/auth";
+import QuestionResult from "./pages/QuestionResult";
+import Leaderboard from "./pages/Leaderboard";
 
 const { Header, Content } = Layout;
 
@@ -38,9 +41,7 @@ class Routes extends Component {
     // );
     return (
       <Content>
-        <Route exact path="/">
-          <Login />
-        </Route>
+        <Route exact path="/" component={Login} />
       </Content>
     );
   };
@@ -52,19 +53,19 @@ class Routes extends Component {
           <Header>
             <Button
               onClick={() => {
+                console.log("this.props: ", this.props);
                 this.props.logout_user();
               }}
               type="default"
             >
               Logout
             </Button>
+            <Link to="/leaderboard">Leaderboard</Link>
           </Header>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/question/:qid">
-            <QuestionPage />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/question/:qid" component={QuestionPage} />
+          <Route exact path="/leaderboard" component={Leaderboard} />
+          <Route exact path="/questionResult/:qid" component={QuestionResult} />
         </Content>
       </>
     );
