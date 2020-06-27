@@ -1,6 +1,6 @@
 import * as _API from "../utils/_DATA";
 
-const { _getQuestions, _getUsers, _saveQuestionAnswer } = _API;
+const { _getQuestions, _getUsers, _saveQuestionAnswer, _saveQuestion } = _API;
 
 // action types
 const DATA_RECEIVED = "DATA_RECEIVED";
@@ -94,6 +94,34 @@ export const save_answer = ({ authedUser, qid, answer }) => async (
   }
 };
 
+export const add_question = ({
+  optionOneText,
+  optionTwoText,
+  author,
+}) => async (dispatch) => {
+  dispatch({
+    type: API_CALLED,
+  });
+
+  try {
+    const questionSaveRes = await _saveQuestion({
+      optionOneText,
+      optionTwoText,
+      author,
+    });
+    console.log("questionSaveRes: ", questionSaveRes);
+
+    dispatch({
+      type: DATA_RECEIVED,
+      payload: {},
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR_OCCURED,
+      payload: error,
+    });
+  }
+};
 // reducer
 
 const defaultState = {
