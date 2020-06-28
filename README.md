@@ -4,10 +4,9 @@ This is the project of Udacity React Nano Degree Program.
 
 ## Installation
 
-run this command one after another in project dir.
-1 - npm install.
-2 - npm start.
-3 - npm run build (optional - it is used for building this app build)
+        - 1 - npm install.
+        - 2 - npm start.
+        - 3 - npm run build (optional)
 
 ## Back-end:
 
