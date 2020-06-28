@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Row, Col, Button, Avatar } from "antd";
+import { Card, Row, Col, Avatar } from "antd";
 import userImg from "./../images/user.jpg";
 import { withRouter } from "react-router-dom";
 

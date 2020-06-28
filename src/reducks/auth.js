@@ -21,7 +21,7 @@ export const logout_user = () => (dispatch) => {
 
 // reducer
 const defaultState = {
-  //   authUser: "sarahedo",
+  // authUser: "sarahedo",
   authUser: null,
 };
 function authReducer(state = defaultState, action) {

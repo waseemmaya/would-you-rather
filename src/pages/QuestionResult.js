@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Card, Row, Col, Button, Avatar, Radio, Progress, Divider } from "antd";
+import { Card, Row, Col, Avatar, Progress, Divider } from "antd";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import user from "./../images/user.jpg";
 import Spinner from "../components/Spinner";
-import { save_answer, get_initial_data } from "../reducks/data";
+import { get_initial_data } from "../reducks/data";
 
 class QuestionResult extends Component {
   render() {
@@ -24,11 +24,9 @@ class QuestionResult extends Component {
     avatarUrl = currentUser ? currentUser.avatarURL : user;
 
     let results = [question.optionOne, question.optionTwo];
-    console.log("results: ", results);
 
     let total = question.optionOne.votes.concat(question.optionTwo.votes)
       .length;
-    console.log("total: ", total);
 
     return (
       <div style={styles.bg}>
@@ -43,7 +41,7 @@ class QuestionResult extends Component {
                 {results.map((v, i) => {
                   let voteLength = v.votes.length;
                   let percent = (voteLength / total) * 100;
-                  console.log("percent: ", percent);
+
                   percent = Math.round(percent);
                   return (
                     <>

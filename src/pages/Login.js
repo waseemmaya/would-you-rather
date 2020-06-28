@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import Spinner from "../components/Spinner";
 import { login_user } from "../reducks/auth";
 
+import wouldYouRather from "../images/wouldYouRather.png";
+
 const { Option } = Select;
 
 class Login extends Component {
@@ -21,10 +23,14 @@ class Login extends Component {
     return (
       <div style={styles.bg}>
         <Card style={styles.card} title="Welcome to Would You Rather!">
-          <p>Login to continue</p>
+          <div style={styles.logoDiv}>
+            <img style={styles.logo} src={wouldYouRather} alt="logo" />
+            <p style={styles.loginText}>Login to continue</p>
+          </div>
+
           <Select
             showSearch
-            style={{ width: "100%", margin: "auto 0" }}
+            style={styles.select}
             placeholder="Select a person to login"
             optionFilterProp="children"
             onChange={this.onChange}
@@ -57,9 +63,18 @@ const styles = {
     margin: "auto",
     width: "25%",
     marginTop: 200,
+    textAlign: "center",
     padding: 10,
   },
   bg: {
     backgroundColor: "#ececec",
   },
+  loginText: {
+    marginTop: 20,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  logoDiv: { textAlign: "center" },
+  logo: { width: 200 },
+  select: { width: "100%", margin: "auto 0" },
 };
